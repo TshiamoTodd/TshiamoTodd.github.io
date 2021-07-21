@@ -1,0 +1,68 @@
+/*Custom Styles*/
+
+.header, .notes, .footer {
+	padding: 35px;
+}
+
+ul {
+	list-style: none;
+	text-align: left;
+
+}
+
+ul li {
+	border: 1px solid #9ca1a8;
+	border-radius: 10px;
+	margin-bottom: 2px;
+	cursor: pointer;
+	padding: 12px 8px 12px 40px;
+}
+
+ul li:nth-child(odd) {
+ 	background: #f9f9f9;
+}
+
+ul li.checked {
+	background: #888;
+	color: #fff;
+	text-decoration: line-through;
+}
+
+ul li:hover {
+	background: linear-gradient(to bottom, #e2e2e2 0%,#dbdbdb 50%,#d1d1d1 51%,#fefefe 100%);
+}
+
+.time {
+	color: #7a7b7c;
+	font-size: 10px;
+}
+
+.myInput {
+	border-radius: 5px;
+	height: 35px;
+}
+
+.footer {
+	text-align: center;
+}
+
+/*Spacing of the page dividers*/
+#header, #content, #footer {
+	text-align: center;
+	padding: 35px;
+}
+
+/* Add a "checked" mark when clicked on */
+ul li.checked::before {
+  content: '';
+  position: absolute;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 10px;
+  left: 16px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+}
+
