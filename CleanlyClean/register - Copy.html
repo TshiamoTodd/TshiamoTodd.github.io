@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/custom.css"/>
+    <title>Register</title>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div id="navbar">
+        <a href="#home"><img src="img/navbar-logo.png" height="30" alt="logo"></a>
+        <a href="#about">About</a>
+        <a href="#sercives">Services</a>
+        <a href="#contact">Contact</a>
+        <div class="right-menu">
+            @if (Route::has('login'))
+                  <div class="top-right links">
+                      @auth
+                          <a href="{{ url('/home') }}">Home</a>
+                      @else
+                          <a href="{{ route('login') }}">Login</a>
+
+                          @if (Route::has('register'))
+                              <a href="{{ route('register') }}">Register</a>
+                          @endif
+                      @endauth
+                  </div>
+            @endif
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row" id="register-body" style="padding: 100px 50px;">
+            <div class="col-sm-12">
+                <div class="order-container">
+                    <section id="order-content">
+                        <form method="POST" action="{{ route('register') }}">
+                            <div style="text-align: center;">
+                                <img src="img/navbar-logo.png" alt="image">
+                                <p>Register an account with us</p>
+                            </div>
+                            <div style="text-align: center;">
+                                <label style="margin-left: -300px;" for="name">Name:</label><br/>
+                                <input class="form-inputs" type="text" @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div style="text-align: center;">
+                                <label style="margin-left: -300px;" for="name">Email:</label><br/>
+                                <input class="form-inputs" type="email" name="email" @error('email') is-invalid @enderror" value="{{ old('email') }}" required autocomplete="email">
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div style="text-align: center;">
+                                <label style="margin-left: -300px;" for="name">Number:</label><br/>
+                                <input class="form-inputs" type="text" @error('number') is-invalid @enderror" name="number" required autocomplete="number">
+
+                                @error('number')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div style="text-align: center;">
+                                <label style="margin-left: -300px;" for="name">Password:</label><br/>
+                                <input class="form-inputs" type="password" @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div style="text-align: center;">
+                                <label style="margin-left: -230px;" for="name">Confirm password:</label><br/>
+                                <input class="form-inputs" type="password" name="password2" id="" required><br/>
+                            </div>
+
+                            <div style="margin-left: 250px;"><br/>
+                                <input class="btn-style-lg" type="submit" name="submit" id="" value="Order">
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+      <!-- Footer -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill="#e7008a" fill-opacity="1" d="M0,0L1440,320L1440,320L0,320Z"></path>
+      </svg>
+      <footer class="py-5" style="background-color: #E7008A;">
+        <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Cleanly Clean 2019</p>
+        </div>
+        <!-- /.container -->
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/scrollScript.js"></script
+</body>
+</html>
